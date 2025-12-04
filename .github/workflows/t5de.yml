@@ -32,10 +32,10 @@ jobs:
           scoop update
           scoop bucket add extras
           scoop install nsis
+          echo "$env:USERPROFILE\scoop\shims" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       - name: Build Installer
-        uses: joncloud/makensis-action@v4.1
-        with:
-          script-file: "./scripts/install.nsi"
+        run: |
+          makensis ./scripts/install.nsi
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.6.1
         with:
