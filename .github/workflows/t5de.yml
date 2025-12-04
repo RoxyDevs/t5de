@@ -1,13 +1,10 @@
 name: T5DE
-
 on:
   push:
   workflow_dispatch:
-
 env:
   T5DE_VERSION: 6.17.3
-  IMVU_VERSION: 536.8.0
-
+  IMVU_VERSION: 548.8
 jobs:
   build:
     runs-on: windows-latest
